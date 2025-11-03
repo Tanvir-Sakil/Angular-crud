@@ -10,7 +10,7 @@ import { Category } from '../Category';
   styleUrl: './item-modal.component.css'
 })
 export class ItemModalComponent implements OnInit {
-     item: Item = { id: 0, name: '', category: '', brand: '' };
+     item: Item = { id: 0, name: '', category: '', brand: '',inStock:false,dateAdded:'' };
      categories: Category[] = [];
 
   constructor(
@@ -29,16 +29,23 @@ loadCategories() {
   });
 }
 
-  create() {
-    this.itemService.create(this.item).subscribe({
-      next: (data) => {
-        this.modal.close(data);
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
+create() {
+  const payload = { ...this.item };
+
+  if (this.item.dateAdded && typeof this.item.dateAdded !== 'string') {
+    const d = this.item.dateAdded as any; 
+    const jsDate = new Date(d.year, d.month - 1, d.day);
+    payload.dateAdded = jsDate.toISOString(); 
   }
+
+  console.log('Payload being sent:', payload);
+
+  this.itemService.create(payload).subscribe({
+    next: (data) => this.modal.close(data),
+    error: (err) => console.error(err)
+  });
+}
+
 
   cancel() {
     this.modal.dismiss();

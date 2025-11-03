@@ -18,6 +18,8 @@
               <th scope="col">Name</th>
               <th scope="col">Category</th>
               <th scope="col">Brand</th>
+              <th scope="col">In Stock</th>
+              <th scope="col">Date Added</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -27,6 +29,17 @@
               <td>{{ itm.name }}</td>
               <td>{{ itm.category }}</td>
               <td>{{ itm.brand }}</td>
+              <td>
+                <span
+                  class="badge"
+                  [ngClass]="itm.inStock ? 'bg-success' : 'bg-danger'"
+                >
+                  {{ itm.inStock ? 'Yes' : 'No' }}
+                </span>
+              </td>
+              <td>
+                {{ itm.dateAdded ? (itm.dateAdded | date:'mediumDate') : '-' }}
+              </td>
               <td>
                 <button
                   class="btn btn-sm btn-outline-primary me-2"

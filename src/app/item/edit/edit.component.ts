@@ -13,7 +13,9 @@ export class EditComponent implements OnInit {
         id:0,
         name:'',
         category:'',
-        brand:''
+        brand:'',
+        inStock:false,
+        dateAdded:''
        }
     constructor(private itemService:ItemService,private router:Router,private route:ActivatedRoute){}
 

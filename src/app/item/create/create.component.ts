@@ -13,27 +13,31 @@ export class CreateComponent {
     id:0,
     name:'',
     category:'',
-    brand:''
+    brand:'',
+    inStock:false,
+    dateAdded:''
    }
 
    constructor(private itemService:ItemService,private router:Router){}
    
-   create()
-   {
-     this.itemService.create(this.item).subscribe(
-      {
-        next:(data)=>
-        {
-          this.router.navigate(["item/home"]);
-        },
-        error:(err)=>
-        {
-          console.log(err)
-        }
-      }
-     )
-   }
+create() {
+  const payload = { ...this.item }; 
 
+  console.log('Payload ',payload);
+
+  if (this.item.dateAdded && typeof this.item.dateAdded !== 'string') {
+    const d = this.item.dateAdded as any;
+    const jsDate = new Date(d.year, d.month - 1, d.day); 
+    payload.dateAdded = jsDate.toISOString(); 
+  }
+
+  console.log('Payload being sent:', payload);
+
+  this.itemService.create(payload).subscribe({
+    next: () => this.router.navigate(['item/home']),
+    error: (err) => console.log(err)
+  });
+}
     cancel()
     {
       this.router.navigate(["item/home"])

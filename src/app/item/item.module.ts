@@ -7,6 +7,7 @@ import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { ItemModalComponent } from './item-modal/item-modal.component';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import { ItemModalComponent } from './item-modal/item-modal.component';
     HomeComponent,
     EditComponent,
     CreateComponent,
-    ItemModalComponent
+    ItemModalComponent,
   ],
   imports: [
     CommonModule,
     ItemRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule,            
+    NgbDatepickerModule
   ]
 })
 export class ItemModule { }
