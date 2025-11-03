@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Pixel",
+      "category": "phone",
+      "brand": "Google"
+    },
+    {
+      "id": 2,
+      "name": "Pixel2",
+      "category": "phone",
+      "brand": "Google"
+    },
+    {
+      "id": 4,
+      "name": "Pixel4",
+      "category": "phone",
+      "brand": "Google"
+    },
+    {
+      "id": 5,
+      "name": "S9 ultra",
+      "category": "Phone",
+      "brand": "Samsung"
+    },
+    {
+      "id": 6,
+      "name": "s11",
+      "category": "Phone",
+      "brand": "Samsung"
+    },
+    {
+      "id": 7,
+      "name": "Pixel",
+      "category": "SmartPhone",
+      "brand": "Google"
+    }
+  ]
+}
