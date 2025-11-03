@@ -6,13 +6,15 @@ import { HomeComponent } from './home/home.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
+import { ItemModalComponent } from './item-modal/item-modal.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    ItemModalComponent
   ],
   imports: [
     CommonModule,

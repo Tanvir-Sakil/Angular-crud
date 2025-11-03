@@ -31,4 +31,8 @@ export class ItemService {
   {
     return this._httpClient.delete<Item>(`${this.baseUrl}/${id}`);
   }
+  getCategories() {
+  const url = 'https://localhost:7119/categories'; 
+  return this._httpClient.get<any[]>(url);
+}
 }
